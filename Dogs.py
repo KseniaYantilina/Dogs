@@ -1,17 +1,16 @@
-from cProfile import label
-from http.client import responses
 from tkinter import *
 from tkinter import messagebox as  mb
 import requests
 from PIL import Image, ImageTk
 from io import BytesIO
 
+
 def get_dog_image():
     try:
-        response = requests.get("ttps://dog.ceo/api/breeds/image/random")
+        response = requests.get("https://dog.ceo/api/breeds/image/random")
         response.raise_for_status()
         data = response.json()
-        return data('message')
+        return data['message']
     except Exception as e:
         mb.showerror("Ошибка!", f"Возникла ошибка при запросе к API {e}")
         return None
@@ -43,4 +42,3 @@ button = Button(text="Загрузить изображение", command=show_i
 button.pack(pady=10)
 
 window.mainloop()
-
