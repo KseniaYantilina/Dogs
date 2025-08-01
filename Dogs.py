@@ -66,4 +66,5 @@ height_label.pack(side="left", padx=(10, 0))
 height_spinbox = ttk.Spinbox(from_=200, to=500, increment=50, width=5)
 height_spinbox.pack(side="left", padx=(0, 10))
 
+
 window.mainloop()
