@@ -48,9 +48,15 @@ def prog():
     progress.start(30)
     window.after(3000, show_image)
 
+def clear_tabs():
+    tabs = notebook.tabs()
+
+    for tab in tabs:
+        notebook.forget(tab)
+
 window = Tk()
 window.title("Картинки с собачками")
-window.geometry("360x420")
+window.geometry("360x300")
 
 label = ttk.Label()
 label.pack(pady=10)
@@ -60,6 +66,9 @@ button.pack(pady=10)
 
 progress = ttk.Progressbar(mode="determinate", length=300)
 progress.pack(pady=10)
+
+button = ttk.Button(text="Удалить вкладки", command=clear_tabs)
+button.pack(pady=10)
 
 width_label = ttk.Label(text="Ширина:")
 width_label.pack(side="left", padx=(10, 0))
